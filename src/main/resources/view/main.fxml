@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.StackPane?>
+
+<VBox xmlns="http://javafx.com/javafx/23"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.juanoff.controller.MainController"
+      spacing="10"
+      styleClass="root-container">
+
+    <MenuBar>
+        <Menu text="File">
+            <Menu fx:id="saveMenu" text="Save">
+                <MenuItem text="JSON" onAction="#saveJson"/>
+                <MenuItem text="XML" onAction="#saveXml"/>
+                <MenuItem text="Binary" onAction="#saveBin"/>
+                <MenuItem text="Text" onAction="#saveText"/>
+            </Menu>
+
+            <Menu fx:id="loadMenu" text="Load">
+                <MenuItem text="JSON" onAction="#loadJson"/>
+                <MenuItem text="XML" onAction="#loadXml"/>
+                <MenuItem text="Binary" onAction="#loadBin"/>
+                <MenuItem text="Text" onAction="#loadText"/>
+            </Menu>
+        </Menu>
+    </MenuBar>
+
+    <HBox spacing="10">
+        <ComboBox fx:id="typeSelector" styleClass="type-selector"/>
+        <TextField fx:id="inputField" promptText="Value" styleClass="value-input"/>
+        <TextField fx:id="indexField" promptText="Index" styleClass="index-input"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Button fx:id="addBtn" text="Add" onAction="#add"/>
+        <Button fx:id="insertBtn" text="Insert" onAction="#insert"/>
+        <Button fx:id="removeBtn" text="Remove" onAction="#remove"/>
+        <Button fx:id="sortBtn" text="Sort" onAction="#sort"/>
+        <Button fx:id="searchBtn" text="Search" onAction="#search"/>
+        <Button fx:id="balanceBtn" text="Balance" onAction="#balance"/>
+        <Button fx:id="clearAllBtn" text="Clear All" onAction="#clearAll"/>
+    </HBox>
+
+    <ListView fx:id="listView" VBox.vgrow="ALWAYS" styleClass="data-list"/>
+</VBox>

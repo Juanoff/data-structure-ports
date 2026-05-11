@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/23"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.juanoff.controller.MatrixEditorController"
+      spacing="10"
+      styleClass="matrix-editor">
+
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <TitledPane text="Add Element" expanded="true">
+        <GridPane hgap="10" vgap="8" alignment="CENTER_LEFT">
+            <Label text="X:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="xField" promptText="0"
+                       GridPane.rowIndex="0" GridPane.columnIndex="1"
+                       prefWidth="100"/>
+
+            <Label text="Y:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+            <TextField fx:id="yField" promptText="0"
+                       GridPane.rowIndex="0" GridPane.columnIndex="3"
+                       prefWidth="100"/>
+
+            <Label text="Value:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="valueField" promptText="0.0"
+                       GridPane.rowIndex="1" GridPane.columnIndex="1"
+                       GridPane.columnSpan="3" HBox.hgrow="ALWAYS"/>
+
+            <Button text="Add" onAction="#addElement"
+                    GridPane.rowIndex="2" GridPane.columnIndex="0"
+                    GridPane.columnSpan="4" maxWidth="Infinity"/>
+        </GridPane>
+    </TitledPane>
+
+    <Label text="Elements Preview:" styleClass="section-label"/>
+
+    <TableView fx:id="previewTable" VBox.vgrow="ALWAYS" styleClass="preview-table">
+        <columns>
+            <TableColumn fx:id="colX" text="X" prefWidth="70"/>
+            <TableColumn fx:id="colY" text="Y" prefWidth="70"/>
+            <TableColumn fx:id="colValue" text="Value" prefWidth="120"/>
+            <TableColumn fx:id="colActions" text="Actions" prefWidth="90"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label fx:id="summaryLabel" text="0 elements" HBox.hgrow="ALWAYS" styleClass="summary-label"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button text="Clear" onAction="#clearAll" styleClass="secondary-button"/>
+        <Button text="Cancel" onAction="#cancel"/>
+        <Button fx:id="addFromFileBtn" text="Add from File (Sum)" onAction="#addFromFile"
+                styleClass="secondary-button"/>
+        <Button text="Save" onAction="#saveToMain" styleClass="done-button"/>
+    </HBox>
+</VBox>

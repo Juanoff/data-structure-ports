@@ -1,0 +1,57 @@
+plugins {
+    id 'java'
+    id 'scala'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+    id 'application'
+}
+
+group = 'com.juanoff'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Scala
+    implementation 'org.scala-lang:scala3-library_3:3.3.1'
+
+    // Jackson
+    implementation 'tools.jackson.core:jackson-databind:3.1.1'
+    implementation 'tools.jackson.dataformat:jackson-dataformat-xml:3.1.1'
+
+    // Logging
+    implementation 'org.slf4j:slf4j-api:2.0.17'
+    implementation 'ch.qos.logback:logback-classic:1.5.32'
+
+    // Tests
+    testImplementation 'org.junit.jupiter:junit-jupiter:6.0.3'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+}
+
+tasks.named('compileJava') {
+    enabled = false
+}
+
+tasks.named('compileScala') {
+    source += sourceSets.main.java.srcDirs
+}
+
+test {
+    useJUnitPlatform()
+}
+
+javafx {
+    version = '23'
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+application {
+    mainClass = 'com.juanoff.Main'
+}

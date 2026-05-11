@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/23"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.juanoff.controller.MatrixSearchController"
+      spacing="10" prefWidth="500" prefHeight="400"
+      styleClass="matrix-search">
+
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <TitledPane text="Search Criteria" expanded="true">
+        <GridPane hgap="10" vgap="8" alignment="CENTER_LEFT">
+            <CheckBox fx:id="searchByX" text="Search by X:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="xField" promptText="X coordinate"
+                       GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="100"/>
+
+            <CheckBox fx:id="searchByY" text="Search by Y:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="yField" promptText="Y coordinate"
+                       GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="100"/>
+
+            <CheckBox fx:id="searchByValue" text="Search by Value:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="valueField" promptText="Value"
+                       GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="100"/>
+
+            <CheckBox fx:id="exactMatch" text="Exact match"
+                      GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+        </GridPane>
+    </TitledPane>
+
+    <Label text="Results:" styleClass="section-label"/>
+
+    <TableView fx:id="resultsTable" VBox.vgrow="ALWAYS" styleClass="results-table">
+        <columns>
+            <TableColumn fx:id="colX" text="X" prefWidth="80"/>
+            <TableColumn fx:id="colY" text="Y" prefWidth="80"/>
+            <TableColumn fx:id="colValue" text="Value" prefWidth="120"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Label fx:id="statusLabel" text="No matrix loaded" HBox.hgrow="ALWAYS" styleClass="status-label"/>
+        <Button text="Search" onAction="#search" defaultButton="true" styleClass="primary-button"/>
+        <Button text="Cancel" onAction="#cancel" cancelButton="true"/>
+    </HBox>
+</VBox>
