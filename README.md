@@ -1,8 +1,8 @@
-# MultiList Data Structure — Java to Scala Port
+# MultiList Data Structure — Java to Scala and Kotlin Port
 
 ## Description
 
-This project is a port of a data structure application from Java to Scala developed as part of university laboratory work.
+This project is a port of a data structure application from Java to Scala and Kotlin developed as part of university laboratory work.
 
 The application implements a custom data structure based on a list containing list headers (`MultiList`) with support for multiple user-defined data types and graphical user interface interaction.
 
@@ -10,10 +10,11 @@ The project demonstrates:
 
 - porting object-oriented Java code to Scala;
 - usage of Scala traits and collections;
+- porting object-oriented Java code to Kotlin;
 - combination of imperative and functional programming approaches;
 - implementation of generic data handling through interfaces/traits;
 - work with serialization and file storage;
-- integration between Scala backend and JavaFX GUI.
+- integration between Scala (or Kotlin) backend and JavaFX GUI.
 
 The application supports the following data types:
 
@@ -84,6 +85,7 @@ The GUI allows:
 ## Technologies
 
 - Scala
+- Kotlin
 - Java
 - JavaFX
 - Gradle
@@ -96,10 +98,11 @@ The GUI allows:
 src/
  ├── main/
  │    ├── java/
+ │    ├── kotlin/
  │    └── scala/
 ```
 
-Main Scala components:
+Main Scala and Kotlin components:
 
 - `MultiList` — custom data structure
 - `UserType` — abstraction for user-defined types
