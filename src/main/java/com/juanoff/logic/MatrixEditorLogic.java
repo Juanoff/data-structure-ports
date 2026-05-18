@@ -1,6 +1,6 @@
 package com.juanoff.logic;
 
-import com.juanoff.scala.types.SparseMatrix;
+import com.juanoff.kotlin.types.SparseMatrix;
 import java.util.List;
 import java.util.Optional;
 

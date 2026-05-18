@@ -1,7 +1,5 @@
 package com.juanoff.scala.types
 
-//import com.juanoff.types.{Comparator}
-
 import java.io.{BufferedReader, InputStreamReader}
 
 class IntegerType extends UserType {

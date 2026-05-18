@@ -1,17 +1,17 @@
 package com.juanoff.controller;
 
 import com.juanoff.factory.SerializerFactory;
-import com.juanoff.scala.factory.UserTypeFactory;
-import com.juanoff.scala.model.DataStructure;
-import com.juanoff.scala.model.MultiList;
-import com.juanoff.scala.types.DoubleType;
-import com.juanoff.scala.types.IntegerType;
-import com.juanoff.scala.types.SparseMatrixType;
-import com.juanoff.scala.types.StringType;
+import com.juanoff.kotlin.factory.UserTypeFactory;
+import com.juanoff.kotlin.model.DataStructure;
+import com.juanoff.kotlin.model.MultiList;
 import com.juanoff.serialization.DataContainer;
 import com.juanoff.serialization.Serializer;
 import com.juanoff.serialization.SerializerType;
-import com.juanoff.scala.types.UserType;
+import com.juanoff.kotlin.types.DoubleType;
+import com.juanoff.kotlin.types.IntegerType;
+import com.juanoff.kotlin.types.SparseMatrixType;
+import com.juanoff.kotlin.types.StringType;
+import com.juanoff.kotlin.types.UserType;
 import com.juanoff.ui.handler.TypeOperationRegistry;
 import com.juanoff.ui.util.UIHelper;
 import com.juanoff.util.Config;
@@ -76,7 +76,7 @@ public class MainController {
         factory.register(new DoubleType());
         factory.register(new StringType());
         factory.register(new SparseMatrixType());
-        
+
         typeSelector.getItems().addAll(factory.getTypeNameList());
 
         BooleanBinding noTypeSelected = Bindings.isNull(typeSelector.getSelectionModel().selectedItemProperty());

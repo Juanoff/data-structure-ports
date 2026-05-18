@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'scala'
+    id 'org.jetbrains.kotlin.jvm' version '2.3.20'
     id 'org.openjfx.javafxplugin' version '0.1.0'
     id 'application'
 }
@@ -15,6 +16,10 @@ repositories {
 dependencies {
     // Scala
     implementation 'org.scala-lang:scala3-library_3:3.3.1'
+
+    // Kotlin
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:2.3.20'
+    implementation 'org.jetbrains.kotlin:kotlin-reflect:2.3.20'
 
     // Jackson
     implementation 'tools.jackson.core:jackson-databind:3.1.1'
@@ -35,12 +40,8 @@ java {
     }
 }
 
-tasks.named('compileJava') {
-    enabled = false
-}
-
-tasks.named('compileScala') {
-    source += sourceSets.main.java.srcDirs
+kotlin {
+    jvmToolchain(21)
 }
 
 test {

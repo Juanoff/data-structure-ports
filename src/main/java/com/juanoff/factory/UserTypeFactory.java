@@ -20,7 +20,7 @@ public class UserTypeFactory {
         register(new SparseMatrixType());
     }
 
-    private void register(UserType type) {
+    public void register(UserType type) {
         types.put(type.typeName(), type);
     }
 

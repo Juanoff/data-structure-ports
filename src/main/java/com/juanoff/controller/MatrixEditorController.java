@@ -2,12 +2,12 @@ package com.juanoff.controller;
 
 import com.juanoff.factory.SerializerFactory;
 import com.juanoff.logic.MatrixEditorLogic;
-import com.juanoff.scala.types.SparseMatrix;
-import com.juanoff.scala.types.UserType;
+import com.juanoff.kotlin.types.SparseMatrix;
+import com.juanoff.kotlin.types.UserType;
 import com.juanoff.serialization.DataContainer;
 import com.juanoff.serialization.Serializer;
 import com.juanoff.serialization.SerializerType;
-import com.juanoff.types.MatrixElement;
+import com.juanoff.kotlin.types.MatrixElement;
 import com.juanoff.types.UserTypeName;
 import com.juanoff.ui.factory.CellFactory;
 import com.juanoff.ui.util.UIHelper;
@@ -278,7 +278,7 @@ public class MatrixEditorController {
 
         entries.clear();
         for (MatrixElement el : currentMatrix.getEntries()) {
-            entries.add(new MatrixEditorLogic.MatrixEntry(el.x, el.y, el.value));
+            entries.add(new MatrixEditorLogic.MatrixEntry(el.getX(), el.getY(), el.getValue()));
         }
     }
 
@@ -307,7 +307,7 @@ public class MatrixEditorController {
 
         entries.clear();
         for (MatrixElement el : matrix.getEntries()) {
-            entries.add(new MatrixEditorLogic.MatrixEntry(el.x, el.y, el.value));
+            entries.add(new MatrixEditorLogic.MatrixEntry(el.getX(), el.getY(), el.getValue()));
         }
 
         modifyEntries(() -> {

@@ -1,6 +1,5 @@
 package com.juanoff.scala.types
 
-import com.juanoff.types.MatrixElement
 import scala.collection.mutable.HashMap as MHashMap
 import scala.jdk.CollectionConverters.*
 

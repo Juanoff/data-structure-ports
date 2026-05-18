@@ -1,7 +1,5 @@
 package com.juanoff.scala.types
 
-//import com.juanoff.types.{Comparator, UserType}
-
 import java.io.{BufferedReader, InputStreamReader}
 
 class StringType extends UserType {

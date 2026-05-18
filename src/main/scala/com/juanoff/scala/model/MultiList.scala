@@ -1,8 +1,5 @@
 package com.juanoff.scala.model
 
-//import com.juanoff.model.{DataStructure, DoWith, TestIt}
-//import com.juanoff.types.Comparator
-
 import com.juanoff.scala.types.Comparator
 
 import scala.annotation.tailrec

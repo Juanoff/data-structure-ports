@@ -1,7 +1,7 @@
 package com.juanoff.controller;
 
-import com.juanoff.scala.types.SparseMatrix;
-import com.juanoff.types.MatrixElement;
+import com.juanoff.kotlin.types.MatrixElement;
+import com.juanoff.kotlin.types.SparseMatrix;
 import com.juanoff.ui.util.UIHelper;
 import com.juanoff.util.NumericValueParser;
 import java.util.function.Consumer;
@@ -67,13 +67,13 @@ public class MatrixSearchController {
 
     private void setupTableColumns() {
         colX.setCellValueFactory(data ->
-                new SimpleIntegerProperty(data.getValue().x).asObject()
+                new SimpleIntegerProperty(data.getValue().getX()).asObject()
         );
         colY.setCellValueFactory(data ->
-                new SimpleIntegerProperty(data.getValue().y).asObject()
+                new SimpleIntegerProperty(data.getValue().getY()).asObject()
         );
         colValue.setCellValueFactory(data ->
-                new SimpleDoubleProperty(data.getValue().value).asObject()
+                new SimpleDoubleProperty(data.getValue().getValue()).asObject()
         );
     }
 
@@ -153,10 +153,10 @@ public class MatrixSearchController {
     }
 
     private boolean matchesCriteria(MatrixElement el, Integer x, Integer y, Double value, boolean exact) {
-        if (x != null && el.x != x) return false;
-        if (y != null && el.y != y) return false;
+        if (x != null && el.getX() != x) return false;
+        if (y != null && el.getY() != y) return false;
         if (value != null) {
-            return exact ? el.value == value : Math.abs(el.value - value) <= EPSILON;
+            return exact ? el.getValue() == value : Math.abs(el.getValue() - value) <= EPSILON;
         }
         return true;
     }
@@ -180,7 +180,7 @@ public class MatrixSearchController {
 
         String header = "X,Y,Value\n";
         String rows = results.stream()
-                .map(el -> String.format("%d,%d,%.6f", el.x, el.y, el.value))
+                .map(el -> String.format("%d,%d,%.6f", el.getX(), el.getY(), el.getValue()))
                 .collect(Collectors.joining("\n"));
 
         String csv = header + rows;
@@ -190,7 +190,7 @@ public class MatrixSearchController {
     }
 
     private String formatElement(MatrixElement el) {
-        return String.format("(%d, %d) = %.6f", el.x, el.y, el.value);
+        return String.format("(%d, %d) = %.6f", el.getX(), el.getY(), el.getValue());
     }
 
     private ClipboardContent createClipboardContent(String text) {
