@@ -25,6 +25,9 @@ The application supports the following data types:
 
 Each structure instance stores elements of only one selected type.
 
+![Application](screenshots/default.png)
+![Application](screenshots/add-matrix.png) ![Application](screenshots/search-matrix.png)
+
 ---
 
 ## Implemented Features
@@ -125,7 +128,7 @@ Java components are mainly responsible for:
 
 Installed software:
 
-- JDK 17+ (or version used in the project)
+- JDK 21+ (or version used in the project)
 - Gradle
 
 ### Run application
